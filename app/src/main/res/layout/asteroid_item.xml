@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="asteroid"
+            type="com.udacity.asteroidradar.Asteroid" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        tools:background="@color/colorPrimary">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAsteroidName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:text="@{asteroid.codename}"
+            android:textAppearance="@style/AppTheme.ParagraphTitle1"
+            app:layout_constraintEnd_toStartOf="@id/ivStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="75647abcd" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAsteroidDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{asteroid.closeApproachDate}"
+            android:textAppearance="@style/AppTheme.ParagraphTitle2"
+            app:layout_constraintEnd_toStartOf="@id/ivStatus"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAsteroidName"
+            tools:text="2021-12-53" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStatus"
+            statusIcon="@{asteroid}"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/asteroid_status_icon"
+            app:layout_constraintBottom_toBottomOf="@id/tvAsteroidDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvAsteroidName"
+            tools:src="@drawable/loading_img" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
